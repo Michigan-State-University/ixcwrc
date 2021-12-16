@@ -22,3 +22,18 @@
   margin-top:10px;
   margin-left:10px;
 }
+div.logo-item {
+  text-align: center;
+  border: 2px solid whitesmoke;
+  width: 250px;
+  height: 100px;
+  padding: 0px 10px 0px 10px;
+  margin: 0px;
+  display: flex;
+}
+
+.logo-item img {
+  margin: auto auto;
+  max-height: 90px;
+  max-width: 225px;
+}
