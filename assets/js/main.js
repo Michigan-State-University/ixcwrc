@@ -6,7 +6,13 @@ const header = document.getElementById('header');
 window.onload=function() 
 {   
     headerAnimation(); 
-
+    document.getElementById('navigation').addEventListener('show.bs.collapse', function () {
+        header.classList.add('header-shrink');  
+    })
+    document.getElementById('navigation').addEventListener('hidden.bs.collapse', function () {
+        header.classList.add('header-shrink');
+        headerAnimation();  
+    })
 };
 
 window.onresize=function() 
@@ -34,6 +40,7 @@ function headerAnimation () {
 	}
 
 };
+
 
 /* ===== Smooth scrolling ====== */
 /*  Note: You need to include smoothscroll.min.js (smooth scroll behavior polyfill) on the page to cover some browsers */
