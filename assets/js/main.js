@@ -135,3 +135,93 @@ setInterval(function () {
     // secs_span.innerHTML = '<span class="number">' + seconds + '</span>' + '<span class="unit">Secs</span>';
  
 }, 1000);
+
+/* ==== Schedule ==== */
+
+var today = new Date();
+var targetDate = new Date("Jun 13, 2022");
+var conferenceDay = Math.max(Math.floor((today - targetDate) / (1000 * 3600 * 24)) + 1, 1)
+var scheduleElement = document.getElementById('tab-'+conferenceDay)
+if(scheduleElement){ scheduleElement.classList.add("active")}
+var scheduleElement = document.getElementById('tab-'+conferenceDay+'-content')
+if(scheduleElement){ scheduleElement.classList.add("active")}
+
+  var buildSchedule = function(elSelector, data){
+    var el = document.getElementById(elSelector);
+    el.innerHTML = ''
+    if(!el) return;
+    var html = ''
+    data.forEach(function( event ) {
+      html += '<div class="item item-other">'
+      html += '<div class="meta"><h4 class="time mb-3">'+event[0]+'</h4></div>'
+      html += '<div class="content"><h3 class="title mb-3">'+event[1]+'</h3></div>'
+      html += '</div>'
+    });
+    el.innerHTML = html;
+  };
+  var day1 = [
+    ['5:00 - 5:30', 'Session 1 - Opening Remarks'],
+    ['5:30 - 6:45', 'Plenary Lecture'],
+    ['6:45 - 8:00', 'Welcome Dinner'],
+    ['8:00 - 11:00', 'Meet and Greet']
+  ]
+  buildSchedule('tab-1-content', day1);
+  
+  var day2 = [
+    ['7:30 - 8:45', 'Breakfast'],
+    ['8:45 - 10:00', 'Session 2 - Tools to Study the Cell Wall'],
+    ['10:00 - 10:45', 'Coffee/ Tea Break'],
+    ['10:45 - 12:00', 'Session 3 - Cell Biology and Cell Wall Trafficking'],
+    ['11:45 - 1:30', 'Lunch & Poster Set Up'],
+    ['1:30 - 2:30', 'Session 4 - Secondary Cell Wall Synthesis & Formation'],
+    ['2:30 - 3:15', 'Coffee/Tea Break'],
+    ['3:15 - 4:00', 'Session 5 - Plant Development and the Cell Wall'],
+    ['4:00 - 5:00', 'Writing Workshop'],
+    ['6:00 - 6:45', 'Session 6 - Genetic Regulation of the Cell Wall'],
+    ['6:45 - 8:00', 'Dinner'],
+    ['8:00 - 11:00', 'Refreshments/Poster Session 1 (even numbers)']
+  ]
+  buildSchedule('tab-2-content', day2);
+  
+  var day3 = [
+    ['7:30 - 8:45', 'Breakfast'],
+    ['8:45 - 10:00', 'Session 7 - Cell Wall Mechanics'],
+    ['10:00 - 10:45', 'Coffee/ Tea Break'],
+    ['10:45 - 12:00', 'Session 8 - Cell Wall Mechanics Continued'],
+    ['12:00 - 1:30', 'Lunch & MEEPs'],
+    ['1:30 - 2:30', 'Session 9 - Pectin (Biosynthesis)'],
+    ['2:30 - 3:15', 'Coffee/Tea Break'],
+    ['3:15 - 4:00', 'Session 10 - Synthetic Biology'],
+    ['4:00 - 5:30', 'DEI Workshop'],
+    ['5:30 - 5:45', 'Picture'],
+    ['6:00 - 6:45', 'Session 11 - Lignin'],
+    ['6:45 - 8:00', 'Dinner'],
+    ['8:00 - 11:00', 'Refreshments/Poster Session 2 (odd numbers)']
+  ]
+  buildSchedule('tab-3-content', day3);
+  
+  var day4 = [
+    ['7:30 - 8:45', 'Breakfast'],
+    ['8:45 - 10:00', 'Session 12 - Cell Wall Engineering (Polsaccharide)'],
+    ['10:00 - 10:45', 'Coffee/ Tea Break'],
+    ['10:45 - 12:00', 'Session 13 Continued'],
+    ['12:15 - 1:30', 'Lunch'],
+    ['1:30 - 2:30', 'Session 15 - Plant Cell Wall Signaling'],
+    ['2:30 - 3:15', 'Coffee/Tea Break'],
+    ['3:15 - 4:00', 'Business Meeting'],
+    ['4:00 - 5:00', 'Commercialization Workshop'],
+    ['5:00 - 6:45', 'Scientific Collaboration Time'],
+    ['6:45 - 8:00', 'Gala Dinner'],
+    ['8:00 - 11:00', 'Dance']
+  ]
+  buildSchedule('tab-4-content', day4);
+  
+  var day5 = [
+    ['7:30 - 8:45', 'Breakfast'],
+    ['8:45 - 10:00', 'Session 16 - Arabinogalactan Protein'],
+    ['10:00 - 10:45', 'Coffee/ Tea Break'],
+    ['10:45 - 12:00', 'Session 17 - Hemicellulose'],
+    ['12:00 - 1:30', 'Farewell and Awards'],
+    ['1:30', 'Poster Dismount']
+  ]
+  buildSchedule('tab-5-content', day5);
